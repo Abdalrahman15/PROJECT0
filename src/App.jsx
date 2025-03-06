@@ -17,7 +17,7 @@ function App() {
       path: "", element: <Layout />, children: [
         { path: "", element: <Home /> },
         { path: "home", element: <Home /> },
-        { path: "products", element: <Protector><Products /></Protector> },
+        { path: "products", element: <Products /> },
         { path: "signup", element: <Signup /> },
         { path: "login", element: <Login /> },
       ]
