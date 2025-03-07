@@ -90,7 +90,7 @@ export default function Login() {
   <i
     onClick={() => setToggle(!toggle)}
     className={`absolute top-1/2 right-4 -translate-y-1/2 cursor-pointer mt-3 ${
-      toggle ? "text-red-400 fa-solid fa-eye" : "fa-solid fa-eye-slash"
+      toggle ? "text-yellow-600 fa-solid fa-eye" : "fa-solid fa-eye-slash"
     }`}
   ></i>
 </div>
