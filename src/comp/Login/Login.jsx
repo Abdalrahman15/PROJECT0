@@ -1,8 +1,11 @@
 import axios from 'axios'
 import { useFormik } from 'formik'
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { SunAndMoon } from '../../Context/SunAndMoon.jsx'
+
+
+
 
 export default function Login() {
     const [sucess, setSucess] = useState(null)
@@ -10,7 +13,37 @@ export default function Login() {
     const [token, setToken] = useState(null)
     const [toggle, setToggle] = useState(false)
     const { togglex } = useContext(SunAndMoon)
+    const [goal, setGoal] = useState(null)
     let nav = useNavigate()
+
+
+      
+    useEffect(() => {
+        window.google.accounts.id.initialize({
+            client_id: "249465588129-qtbfccafp255jeh87q3pd2rcakek99fr.apps.googleusercontent.com",
+            callback: handleCredentialResponse
+        });
+
+        window.google.accounts.id.renderButton(
+            document.getElementById("g_id_signin"),
+            { theme: "outline", size: "large" }
+        );
+    }, []);
+
+    function handleCredentialResponse(response) {
+        console.log("Google ID Token:", response.credential);
+        nav("/home")
+        
+    }
+
+
+
+
+  
+   
+  
+    
+
 
     async function handleLogin(values) {
         try {
@@ -20,7 +53,13 @@ export default function Login() {
             setSucess(res?.data?.message)
             setToken(res.data.token)
             localStorage.setItem("token", res.data.token)
-            nav("/home")
+            if(goal==="Bulk"){
+                nav("/bulk")
+            }if(goal==="Shredded"){
+                nav("/shredded")
+            }
+
+            
             setFaild(" ")
 
         } catch (err) {
@@ -64,10 +103,35 @@ export default function Login() {
                     className={`absolute top-1/2 right-4 -translate-y-1/2 cursor-pointer mt-3 ${toggle ? "text-yellow-600 fa-solid fa-eye" : "fa-solid fa-eye-slash"}`}
                 ></i>
             </div>
+            <div>
+                <label htmlFor="Test"></label>
+                <select name="Test" id="Test" className='p-1 rounded-r-sm'
+                onChange={(e)=>setGoal(e.target.value)}
+                >
+                <option value="">Select Your Goal</option>
+                <option value="Bulk">Bulk</option>
+                <option value="Shredded">Shredded</option>
+                </select>
+            </div>
 
-            <button type="submit" className="text-white bg-black hover:bg-yellow-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Submit</button>
+
+
+
+           
+          
+
+
+
+
+            <button type="submit" className="mt-5 text-white bg-black hover:bg-yellow-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Submit</button>
             <h1>{sucess}</h1>
             <h1>{faild}</h1>
         </form>
+
+
+        <div className="">
+            <h2 className="text-center text-xl mb-4">Google</h2>
+            <div id="g_id_signin"></div> 
+        </div>
     </>
 }

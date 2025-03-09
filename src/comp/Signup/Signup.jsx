@@ -40,7 +40,7 @@ export default function Signup() {
     })
 
     return <>
-        <form className="max-w-sm mx-auto mt-[100px] mb-10" onSubmit={formik.handleSubmit}>
+        <form className="max-w-sm ms-auto mt-[100px] mb-10 container" onSubmit={formik.handleSubmit}>
             <div className='flex gap-3'>
                 <div className="mb-5 w-1/2">
                     <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-900">Your name</label>
