@@ -11,6 +11,7 @@ import { QueryClientProvider, QueryClient } from '@tanstack/react-query'
 import SunAndMoonProvider, { SunAndMoon } from './Context/SunAndMoon.jsx'
 import Bulk from './comp/Bulk/Bulk.jsx'
 import Shredded from './comp/Shredded/Shredded.jsx'
+import Caloriecalc from './comp/Caloriecalc/Caloriecalc.jsx'
 
 function App() {
   
@@ -21,6 +22,7 @@ function App() {
         { path: "home", element: <Home /> },
         { path: "products", element: <Products /> },
         { path: "signup", element: <Signup /> },
+        { path: "caloriecalc", element: <Caloriecalc /> },
         { path: "bulk", element: <Bulk /> },
         { path: "shredded", element: <Shredded /> },
         { path: "login", element: <Login /> },

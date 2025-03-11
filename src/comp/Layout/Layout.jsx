@@ -1,23 +1,54 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Navbar from '../Navbar/Navbar.jsx'
 import { Outlet } from 'react-router-dom'
 import Footer from '../Footer/Footer.jsx'
 
+export default function Layout() {
+  const [showButton, setShowButton] = useState(false)
 
-export default function () {
+  // دالة لمراقبة التمرير
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 700) {
+        setShowButton(true)
+      } else {
+        setShowButton(false)
+      }
+    }
 
+    window.addEventListener('scroll', handleScroll)
 
-  return <>
-  <div className='flex flex-col min-h-screen'> 
-  <Navbar/>
-<div className=' flex-grow mt-[0px] '>
-  <Outlet></Outlet>
-</div>
+   
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
 
-<div className=' self-end w-full   '>
+  
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
 
-<Footer/>
-</div>
-  </div>
-  </>
+  return (
+    <>
+      <div className="flex flex-col min-h-screen">
+        <Navbar />
+        
+        <div className="flex-grow mt-0 relative">
+          <Outlet />
+
+          {showButton && (
+            <div
+              onClick={scrollToTop}
+              className="flex justify-center items-center rounded-r-full p-5 bg-black fixed right-5 bottom-6 cursor-pointer z-[999999] rounded-full shadow-lg transition-all duration-300 hover:bg-yellow-600"
+            >
+              <i class="fa-solid fa-up-long text-white text-3xl"></i>
+            </div>
+          )}
+        </div>
+
+        <Footer />
+      </div>
+    </>
+  )
 }

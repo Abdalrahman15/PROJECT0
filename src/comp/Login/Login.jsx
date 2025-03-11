@@ -18,23 +18,8 @@ export default function Login() {
 
 
       
-    useEffect(() => {
-        window.google.accounts.id.initialize({
-            client_id: "249465588129-qtbfccafp255jeh87q3pd2rcakek99fr.apps.googleusercontent.com",
-            callback: handleCredentialResponse
-        });
-
-        window.google.accounts.id.renderButton(
-            document.getElementById("g_id_signin"),
-            { theme: "outline", size: "large" }
-        );
-    }, []);
-
-    function handleCredentialResponse(response) {
-        console.log("Google ID Token:", response.credential);
-        nav("/home")
-        
-    }
+  
+    
 
 
 
@@ -129,9 +114,5 @@ export default function Login() {
         </form>
 
 
-        <div className="">
-            <h2 className="text-center text-xl mb-4">Google</h2>
-            <div id="g_id_signin"></div> 
-        </div>
     </>
 }
