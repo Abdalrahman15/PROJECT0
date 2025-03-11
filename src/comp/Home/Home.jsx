@@ -50,12 +50,12 @@ export default function Home() {
       <div className="flex flex-col gap-10 p-10 mt-[100px] ms-">
     
       <div className="lg:flex justify-center gap-7 h-full ">
-  <div className="text-center lg:text-left my-3 flex-grow p-1 rounded-md    ">
+  <div className="text-center lg:text-left my-3  p-1 rounded-md lg:w-1/2   ">
   <motion.div
-  initial={{ opacity: 0, x: -100 }}
+  initial={{ opacity: 0, x: window.innerWidth < 768 ? 0 : -100 }} 
   whileInView={{ opacity: 1, x: 0 }}
   transition={{ duration: 0.8 }}
-  viewport={{ once: false, amount: 0.2 }}
+  viewport={{ once: true, amount: 0.2 }}
   className=" bg-gray-300 bg-opacity-25 h-full flex justify-center  "
 >
   <div className="  flex-col   justify-center items-center pt-3 ">
@@ -73,10 +73,10 @@ export default function Home() {
   </div>
   <div className="flex justify-center items-cente">
   <motion.img
-    initial={{ opacity: 0, x: 100 }}
+    initial={{ opacity: 0, x: window.innerWidth < 768 ? 0 : -100 }} 
     whileInView={{ opacity: 1, x: 0 }}
     transition={{ duration: 0.8 }}
-    viewport={{ once: false, amount: 0.3 }}
+    viewport={{ once: true, amount: 0.3 }}
     className=" rounded-lg shadow-lg p-1 w-[350px] h-[200px] object-cover     "
     src={training}
     alt="Training"
@@ -96,12 +96,12 @@ export default function Home() {
       <div className="flex flex-col gap-10 p-10 mt-[0px] ms-">
     
       <div className="lg:flex justify-center gap-7 h-full ">
-  <div className="text-center lg:text-left my-3 flex-grow p-1 rounded-md    ">
+  <div className="text-center lg:text-left my-3 lg:w-1/2 p-1 rounded-md    ">
   <motion.div
-  initial={{ opacity: 0, x: -100 }}
+  initial={{ opacity: 0, x: window.innerWidth < 768 ? 0 : -100 }} 
   whileInView={{ opacity: 1, x: 0 }}
   transition={{ duration: 0.8 }}
-  viewport={{ once: false, amount: 0.2 }}
+  viewport={{ once: true, amount: 0.2 }}
   className=" bg-gray-300 bg-opacity-25 h-full flex justify-center  "
 >
   <div className="  flex-col   justify-center items-center pt-3 ">
@@ -119,10 +119,10 @@ export default function Home() {
   </div>
   <div className="flex justify-center items-cente">
   <motion.img
-    initial={{ opacity: 0, x: 100 }}
+  initial={{ opacity: 0, x: window.innerWidth < 768 ? 0 : -100 }} 
     whileInView={{ opacity: 1, x: 0 }}
     transition={{ duration: 0.8 }}
-    viewport={{ once: false, amount: 0.3 }}
+    viewport={{ once: true, amount: 0.3 }}
     className=" rounded-lg shadow-lg p-1 w-[350px] h-[200px] object-cover     "
     src={motivation}
     alt="Training"
@@ -142,12 +142,12 @@ export default function Home() {
       <div className="flex flex-col gap-10 p-10 mt-[0px] ms-">
     
       <div className="lg:flex justify-center gap-7 h-full ">
-  <div className="text-center lg:text-left my-3 flex-grow p-1 rounded-md    ">
+  <div className="text-center lg:text-left my-3 lg:w-1/2 p-1 rounded-md    ">
   <motion.div
-  initial={{ opacity: 0, x: -100 }}
+ initial={{ opacity: 0, x: window.innerWidth < 768 ? 0 : -100 }} 
   whileInView={{ opacity: 1, x: 0 }}
   transition={{ duration: 0.8 }}
-  viewport={{ once: false, amount: 0.2 }}
+  viewport={{ once: true, amount: 0.2 }}
   className=" bg-gray-300 bg-opacity-25 h-full flex justify-center  "
 >
   <div className="  flex-col   justify-center items-center pt-3 ">
@@ -165,10 +165,10 @@ export default function Home() {
   </div>
   <div className="flex justify-center items-cente">
   <motion.img
-    initial={{ opacity: 0, x: 100 }}
+initial={{ opacity: 0, x: window.innerWidth < 768 ? 0 : -100 }} 
     whileInView={{ opacity: 1, x: 0 }}
     transition={{ duration: 0.8 }}
-    viewport={{ once: false, amount: 0.3 }}
+    viewport={{ once: true, amount: 0.3 }}
     className=" rounded-lg shadow-lg p-1 w-[350px] h-[200px] object-cover     "
     src={health}
     alt="Training"
