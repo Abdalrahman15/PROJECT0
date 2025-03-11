@@ -1,4 +1,4 @@
-'use client'
+
 import { useFormik } from 'formik'
 import React, { useEffect, useState } from 'react'
 
