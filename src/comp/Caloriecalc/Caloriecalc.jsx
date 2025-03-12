@@ -103,20 +103,21 @@ console.log(Math.floor(xx))
   <div className='mt-[100px] container lg:gap-16 gap-7 flex flex-col lg:flex-row justify-center '>
 
 
-<div className=' bg-slate-200 py-11 px-5 shadow-lg mb-[35px] lg:mb-[200px] mt-[15px] min-w-max  w-[50%] flex-col justify-center items-center '>
-<form  onSubmit={formik.handleSubmit} className="   ">
-  <h1 className='p-5 text-center'>Calories Calculator</h1>
-  <div className="mb-5">
-    <label htmlFor="age" className="block mb-2 text-sm font-medium text-gray-900 ">age</label>
-    <input onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.age} type="age" id="age" className="shadow-xs bg-gray-50 border border-gray-300 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   " placeholder="" required />
+  <div className='bg-slate-200 py-11 px-4 shadow-lg mb-[35px] lg:mb-[200px] mt-[15px] w-full max-w-[480px] flex flex-col justify-center items-center '>
+
+<form  onSubmit={formik.handleSubmit} className="flex-col justify-center items-center">
+  <h1 className='p-5 text-center font-serif '>Calories Calculator</h1>
+  <div className="mb-5 flex-col justify-center items-center ">
+    <label htmlFor="age" className="block mb-2 text-sm font-medium text-gray-900 w-[90%] mx-auto ">age</label>
+    <input onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.age} type="age" id="age" className="w-[90%] shadow-xs bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block p-2.5 mx-auto" placeholder="" required />
   </div>
   <div className="mb-5">
-    <label htmlFor="height" className="block mb-2 text-sm font-medium text-gray-900 ">height</label>
-    <input onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.height} type="height" id="height" className="shadow-xs bg-gray-50 border border-gray-300 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   " required />
+    <label htmlFor="height" className="block mb-2 text-sm font-medium text-gray-900 w-[90%] mx-auto ">height</label>
+    <input onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.height} type="height" id="height" className=" w-[90%] mx-auto shadow-xs bg-gray-50 border border-gray-300 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block  p-2.5   " required />
   </div>
   <div className="mb-5">
-    <label htmlFor="weight" className="block mb-2 text-sm font-medium text-gray-900 ">weight</label>
-    <input onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.weight} type="weight" id="weight" className="shadow-xs bg-gray-50 border border-gray-300 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   " required />
+    <label htmlFor="weight" className="block mb-2 text-sm font-medium text-gray-900 w-[90%] mx-auto ">weight</label>
+    <input onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.weight} type="weight" id="weight" className=" w-[90%] mx-auto shadow-xs bg-gray-50 border border-gray-300 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block  p-2.5   " required />
   </div>
   <div className="mb-5">
   <label htmlFor="gender" className='bg-red-500'></label>
@@ -124,7 +125,7 @@ console.log(Math.floor(xx))
  
     name="gender" 
     id="gender"
-    className="p-2 rounded bg-black text-white hover:text-white" 
+    className="p-2 rounded bg-black text-white hover:text-white ms-3" 
     value={formik.values.gender}  
     onChange={formik.handleChange}  
     onBlur={formik.handleBlur}
@@ -140,7 +141,7 @@ console.log(Math.floor(xx))
   <select
     name="ActivityLevel" 
     id="ActivityLevel"
-    className="p-2 rounded bg-black text-white hover:text-white "
+    className="p-2 rounded bg-black text-white hover:text-white ms-3 w-[90%] "
     value={formik.values.activity}  
     onChange={formik.handleChange}  
     onBlur={formik.handleBlur}
@@ -154,7 +155,7 @@ console.log(Math.floor(xx))
   </select>
   </div>
   
-  <button onClick={scrollToTop} type="submit" className="mt-5 text-white bg-black hover:bg-yellow-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center  w-[100%]">Calculate</button>
+  <button onClick={scrollToTop} type="submit" className=" mx-auto w-[90%] ms-5 mt-3 text-white bg-black hover:bg-yellow-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center ">Calculate</button>
   
 </form>
 <div className="mx-auto w-full  ">
@@ -163,7 +164,7 @@ console.log(Math.floor(xx))
     <div className=' w-[100%]   p-7 rounded my-3'>
       <div className='p-2 '>
       {
-    xx>0&& <h1 className=' text-center flex text-white font-bold font-serif lg:text-nowrap md:text-wrap'><span className='bg-green-400 p-3 w-1/2'>Maintain Weight:</span><span className='flex justify-center items-center bg-white flex-grow text-yellow-600 font-sans'>{xx == 0? " ":Math.floor(xx)}</span></h1>
+    xx>0&& <h1 className=' text-center flex text-white font-bold font-serif  md:text-wrap'><span className='bg-green-400 p-3 w-1/2'>Maintain Weight:</span><span className='flex justify-center items-center bg-white flex-grow text-yellow-600 font-sans'>{xx == 0? " ":Math.floor(xx)}</span></h1>
   }
       </div>
       <div className='p-2 '>
