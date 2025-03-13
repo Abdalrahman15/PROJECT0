@@ -70,14 +70,14 @@ export default function Navbar() {
 
 
         <li className='bg-black cursor-pointer' onClick={()=>setToggleF(!toggleF)}>
-          <div  to="" id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar" className="flex items-center justify-between w-full py-2 px-3  md:hover:bg-transparent md:border-0  md:p-0 md:w-auto  text-white aria-[current=page]:bg-yellow-600 md:aria-[current=page]:bg-transparent  hover:bg-yellow-600" onClick={()=>setToggle(true)}><p className='flex gap-1'> <span>Other</span>  <span>Features</span> </p> <svg className="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+          <div  to="" id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar" className="flex items-center justify-between w-full py-2 px-3  md:hover:bg-transparent md:border-0  md:p-0 md:w-auto  text-white aria-[current=page]:bg-yellow-600 md:aria-[current=page]:bg-transparent  hover:bg-yellow-600" onClick={()=>setToggle()}><p className='flex gap-1'> <span>Other</span>  <span>Features</span> </p> <svg className="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
               <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="m1 1 4 4 4-4" />
             </svg></div>
           {/* Dropdown menu */}
           <div id="dropdownNavbar" className={toggleF==true?" hidden  z-10 font-normal absolute bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 ":"   z-10 font-normal absolute bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 "}>
             <ul className="py-2 text-sm text-gray-700 " aria-labelledby="dropdownLargeButton">
               <li>
-                <NavLink to="caloriecalc" className="block px-4 py-2  hover:bg-yellow-600  ">calc</NavLink>
+                <NavLink to="caloriecalc" className="block px-4 py-2  hover:bg-yellow-600 "  onClick={()=>setToggle(true)}      >calc</NavLink>
               </li>
               <li>
                 <NavLink to="shredded" className="block px-4 py-2 hover:bg-yellow-600  " onClick={()=>setToggle(true)}>Shredded</NavLink>
