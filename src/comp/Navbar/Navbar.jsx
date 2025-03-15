@@ -8,6 +8,12 @@ export default function Navbar() {
   const [toggleF, setToggleF] = useState(true)
   const [dropdown, setDropDwon] = useState(true)
   const { togglex ,setTogglex } = useContext(SunAndMoon)
+
+   const [isVisible, setIsVisible] = useState(false);
+  
+    const toggleSidebar = () => {
+      setIsVisible(!isVisible);
+    };
   
   
 
@@ -21,16 +27,23 @@ export default function Navbar() {
   }
 
 
+  function toggleRequiem(){
 
+    setToggleF(!toggleF)
+    if(dropdown==false){
+      setDropDwon(true)
+    }
+    
+  }
 
-  
+  function toggleRequiemx(){
 
-
-
-
-
-
-
+    setDropDwon(!dropdown)
+    if(toggleF==false){
+      setToggleF(true)
+    }
+    
+  }
 
   return <>
 
@@ -41,6 +54,11 @@ export default function Navbar() {
     <i class="fa-solid fa-dumbbell text-white text-3xl"></i>
       <span className="self-center text-2xl font-semibold whitespace-nowrap  text-white">Project Test</span>
     </div>
+<button onClick={toggleSidebar}>
+
+    {isVisible ? <i class="fa-solid fa-cart-shopping text-yellow-600 duration-500 text-2xl"></i> : <i class="fa-solid fa-cart-shopping text-white text-2xl duration-300"></i>}
+</button>
+
     
     <button onClick={()=>setToggle(!toggle)} data-collapse-toggle="navbar-multi-level" type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-white rounded-lg md:hidden hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-gray-200  z-[999999999999]" aria-controls="navbar-multi-level" aria-expanded="false">
       <span className="sr-only">Open main menu</span>
@@ -69,8 +87,8 @@ export default function Navbar() {
 
 
 
-        <li className='bg-black cursor-pointer' onClick={()=>setToggleF(!toggleF)}>
-          <div  to="" id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar" className="flex items-center justify-between w-full py-2 px-3  md:hover:bg-transparent md:border-0  md:p-0 md:w-auto  text-white aria-[current=page]:bg-yellow-600 md:aria-[current=page]:bg-transparent  hover:bg-yellow-600" onClick={()=>setToggle()}><p className='flex gap-1'> <span>Other</span>  <span>Features</span> </p> <svg className="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+        <li className='bg-black cursor-pointer' onClick={()=>toggleRequiem()}>
+          <div  to="" id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar" className="flex items-center justify-between w-full py-2 px-3  md:hover:bg-transparent md:border-0  md:p-0 md:w-auto  text-white aria-[current=page]:bg-yellow-600 md:aria-[current=page]:bg-transparent  hover:bg-yellow-600"  ><p className='flex gap-1'> <span>Other</span>  <span>Features</span> </p> <svg className="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
               <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="m1 1 4 4 4-4" />
             </svg></div>
           {/* Dropdown menu */}
@@ -109,16 +127,19 @@ export default function Navbar() {
               </li>
             </ul>
             <div className="py-1">
-              <NavLink to="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 " onClick={()=>setToggle(true)}>Sign out</NavLink>
+              
             </div>
           </div>
+          
         </li>
 
         </div>
 
+        
+
         <div className='flex flex-col font-medium p-4 md:p-0    md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0   bg-black'>
         <li className='bg-black'>
-          <button onClick={()=>setDropDwon(!dropdown)} id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar" className="flex items-center justify-between w-full py-2 px-3 text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto  text-white hover:bg-yellow-600 ">
+          <button onClick={()=>toggleRequiemx()} id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar" className="flex items-center justify-between w-full py-2 px-3 text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto  text-white hover:bg-yellow-600 ">
             My account 
             <svg className="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
               <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="m1 1 4 4 4-4" />
@@ -146,7 +167,51 @@ export default function Navbar() {
     
     
   </div>
+  
 </nav>
+
+
+
+
+
+<div className="w-full text-center fixed z-[99999999999999999] ">
+        <button
+          className= " absolute  top-5 left-[30%] "
+          
+        >
+        </button>
+      </div>
+
+      <div
+        className={` top-0 left-0  w-64 h-screen p-4 overflow-y-auto bg-white dark:bg-gray-800 transition-transform  z-[9999999999999999999999999999999] fixed duration-1000 ${isVisible ? '' : 'hidden '}`}
+      >
+        <h5 className="text-base font-semibold text-gray-500 uppercase dark:text-gray-400">Quick cart</h5>
+        <p className='text-sm mt-2'>This is a quick access to cart . </p>
+        <button
+          type="button"
+          className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 absolute top-2.5 right-2.5 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+          onClick={toggleSidebar}
+        >
+          <svg
+            aria-hidden="true"
+            className="w-5 h-5"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fillRule="evenodd"
+              d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+              clipRule="evenodd"
+            />
+          </svg>
+          <span className="sr-only">Close menu</span>
+        </button>
+
+        <ul className="space-y-2 font-medium">
+       
+        </ul>
+      </div>
 
 
 

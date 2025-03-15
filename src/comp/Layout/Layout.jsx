@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Navbar from '../Navbar/Navbar.jsx'
 import { Outlet } from 'react-router-dom'
 import Footer from '../Footer/Footer.jsx'
+import Sidebar from '../Sidebar/Sidebar.jsx'
 
 export default function Layout() {
   const [showButton, setShowButton] = useState(false)
@@ -33,6 +34,10 @@ export default function Layout() {
     <>
       <div className="flex flex-col min-h-screen">
         <Navbar />
+        <div className='mt-[]'>
+        <Sidebar/>
+        </div>
+        
         
         <div className="flex-grow mt-0 relative">
           <Outlet />
